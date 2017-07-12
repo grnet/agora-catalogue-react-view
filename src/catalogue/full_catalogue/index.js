@@ -27,7 +27,6 @@ class FullService extends Reflux.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <div className="services-list">

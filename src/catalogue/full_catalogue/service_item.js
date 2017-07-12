@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ServiceLogo from '../common/service_logo.js';
 
 class ServiceItem extends React.Component {
 
@@ -10,8 +11,9 @@ class ServiceItem extends React.Component {
   render() {
     return (
       <div className="service-item">
-        <img src={this.getImgUrl()} alt={this.props.data.logo} />
+        <ServiceLogo img_name={this.props.data.logo} />
         <h3>{ this.props.data.name }</h3>
+        <div className="service-area">Service Area: { this.props.data.service_area }</div>
         <Link to={`/catalogue/${this.props.data.service.name}`}>Read more </Link>
       </div>
     );
