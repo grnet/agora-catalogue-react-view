@@ -1,7 +1,7 @@
 import React from 'react';
 import Reflux from 'reflux';
-import Store from '../full_catalogue/full_catalogue_store.js';
-import Actions from '../full_catalogue/full_catalogue_actions.js';
+import Actions from '../common/actions.js';
+import Store from '../common/store.js';
 import DetailsItem from './details_item.js';
 import ServiceLogo from '../common/service_logo.js';
 import { orderBy } from 'lodash';

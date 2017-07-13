@@ -1,6 +1,6 @@
 import Reflux from 'reflux';
 import request from 'superagent';
-import Actions from './full_catalogue_actions';
+import Actions from './actions';
 
 const api = {
   services: 'https://sp.eudat.eu/api/v1/catalogue/services/'
@@ -21,7 +21,7 @@ class FullCatalogueStore extends Reflux.Store {
       .get(api.services)
       .end((err, res) => {
         let services = [];
-        if(res.body.data && res.body.data.services) {
+        if(res && res.body.data && res.body.data.services) {
           services = res.body.data.services;
         }
         this.setState({ services });
@@ -33,7 +33,7 @@ class FullCatalogueStore extends Reflux.Store {
       .get(api.services + name)
       .end((err, res) => {
         let service = {};
-        if(res.body.data) {
+        if(res && res.body.data) {
           service = res.body.data;
         }
         this.setState({ service });

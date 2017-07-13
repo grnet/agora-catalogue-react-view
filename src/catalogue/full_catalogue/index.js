@@ -1,7 +1,7 @@
 import React from 'react';
 import Reflux from 'reflux';
-import Actions from './full_catalogue_actions.js';
-import Store from './full_catalogue_store.js';
+import Actions from '../common/actions.js';
+import Store from '../common/store.js';
 import ServiceItem from './service_item.js';
 
 class FullService extends Reflux.Component {
