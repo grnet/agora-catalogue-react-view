@@ -3,13 +3,14 @@ import Reflux from 'reflux';
 import Actions from '../common/actions.js';
 import Store from '../common/store.js';
 import ServiceItem from './service_item.js';
+import Spinner from 'react-spinkit';
 
 class FullService extends Reflux.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.store = Store;
-    this.storeKeys = ['services'];
+    this.storeKeys = ['services', 'services_loaded'];
   }
 
   componentDidMount() {
@@ -30,7 +31,11 @@ class FullService extends Reflux.Component {
     return (
       <div>
         <div className="services-list">
-          { this.renderList() }
+          {
+            (this.state.services_loaded) ?
+            this.renderList() :
+            <Spinner name="circle" color="rgba(191,57,45,0.9)" fadeIn="quarter" />
+          }
         </div>
       </div>
     );

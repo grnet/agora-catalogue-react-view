@@ -8,6 +8,7 @@
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
     "react-scripts": "1.0.10",
+    "react-spinkit": "^3.0.0",
     "reflux": "^6.4.1",
     "superagent": "^3.5.2"
   },

@@ -5,6 +5,7 @@ import Store from '../common/store.js';
 import DetailsItem from './details_item.js';
 import ServiceLogo from '../common/service_logo.js';
 import { orderBy } from 'lodash';
+import Spinner from 'react-spinkit';
 
 class Service extends Reflux.Component {
   constructor() {
@@ -33,7 +34,7 @@ class Service extends Reflux.Component {
     return details;
   }
 
-  render() {
+  renderContent() {
     return (
       <div className="service">
         <h1>{ this.state.service.name }</h1>
@@ -52,6 +53,17 @@ class Service extends Reflux.Component {
         </div>
         { ( this.state.service.service_details_list && this.state.service.service_details_list.count > 0 ) ?
             this.renderDetailsList() : '' }
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        { (this.state.service_loaded) ?
+          this.renderContent() :
+          <Spinner name="circle" color="rgba(191,57,45,0.9)" fadeIn="quarter" />
+        }
       </div>
     );
   }

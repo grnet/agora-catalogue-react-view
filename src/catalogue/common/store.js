@@ -12,11 +12,14 @@ class FullCatalogueStore extends Reflux.Store {
     this.listenables = [ Actions ];
     this.state = {
       services: [],
+      services_loaded: false,
+      service_loaded: false,
       service: {}
     };
   }
 
   onGetServices() {
+    this.setState({ services_loaded: false });
     request
       .get(api.services)
       .end((err, res) => {
@@ -25,10 +28,12 @@ class FullCatalogueStore extends Reflux.Store {
           services = res.body.data.services;
         }
         this.setState({ services });
+        this.setState({ services_loaded: true });
       });
   }
 
   onGetService(name) {
+    this.setState({ service_loaded: false });
     request
       .get(api.services + name)
       .end((err, res) => {
@@ -37,6 +42,7 @@ class FullCatalogueStore extends Reflux.Store {
           service = res.body.data;
         }
         this.setState({ service });
+        this.setState({ service_loaded: true });
       });
   }
 }
