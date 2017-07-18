@@ -15,6 +15,7 @@ class FullService extends Reflux.Component {
 
   componentDidMount() {
     Actions.getServices();
+    document.title = 'EUDAT Service Catalogue';
   }
 
   renderList() {

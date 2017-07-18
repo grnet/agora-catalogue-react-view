@@ -35,6 +35,7 @@ class Service extends Reflux.Component {
   }
 
   renderContent() {
+    document.title = `${this.state.service.name} - EUDAT Service Catalogue`;
     return (
       <div className="service">
         <h1>{ this.state.service.name }</h1>
