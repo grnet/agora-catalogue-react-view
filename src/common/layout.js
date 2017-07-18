@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Catalogue from '../catalogue';
 
 class Layout extends React.Component {
+
   render() {
     return (
       <Switch>

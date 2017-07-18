@@ -12,7 +12,7 @@ class Service extends Reflux.Component {
     super();
     this.state = {};
     this.store = Store;
-    this.storeKeys = ['service'];
+    this.storeKeys = ['service', 'service_loaded'];
   }
 
   componentDidMount() {
