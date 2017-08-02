@@ -2,7 +2,8 @@ import Reflux from 'reflux';
 
 var Actions = Reflux.createActions([
   'getServices',
-  'getService'
+  'getService',
+  'getContactInformation'
 ]);
 
 export default Actions;

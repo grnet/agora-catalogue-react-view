@@ -5,7 +5,7 @@ import ServiceLogo from '../common/service_logo.js';
 class ServiceItem extends React.Component {
 
   getImgUrl() {
-    return `https://sp.eudat.eu/static/img/logos/${this.props.data.logo}`;
+    return `https://agora-dev.vi-seem.eu/static/img/logos/${this.props.data.logo}`;
   }
 
   renderHtml(markup) {
@@ -23,12 +23,15 @@ class ServiceItem extends React.Component {
   render() {
     return (
       <div className="service-item">
-        <ServiceLogo img_name={this.props.data.logo} />
-        <h3>{ this.props.data.name }</h3>
+        <Link to={`/catalogue/${this.props.data.service.name}`}>
+          <ServiceLogo img_name={this.props.data.logo} />
+        </Link>
+        <Link to={`/catalogue/${this.props.data.service.name}`}>
+          <h3>{ this.props.data.name }</h3>
+        </Link>
         <div className="service-area">Service Area: { this.props.data.service_area }</div>
         <p className="short-description" dangerouslySetInnerHTML={this.renderHtml(this.props.data.short_description)} />
         { (this.props.data.user_customers_list.count > 0) ? this.renderUserTags() : '' }
-        <Link to={`/catalogue/${this.props.data.service.name}`}>Read more </Link>
       </div>
     );
   }

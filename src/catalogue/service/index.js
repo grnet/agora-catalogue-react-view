@@ -4,6 +4,7 @@ import Actions from '../common/actions.js';
 import Store from '../common/store.js';
 import DetailsItem from './details_item.js';
 import ServiceLogo from '../common/service_logo.js';
+import ContactInformation from '../common/contact_information.js';
 import { orderBy } from 'lodash';
 import Spinner from 'react-spinkit';
 
@@ -38,8 +39,12 @@ class Service extends Reflux.Component {
     document.title = `${this.state.service.name} - EUDAT Service Catalogue`;
     return (
       <div className="service">
-        <h1>{ this.state.service.name }</h1>
         <ServiceLogo img_name={this.state.service.logo} />
+        <h1>{ this.state.service.name }</h1>
+        <div className="request-procedures">
+          <h3>How can you get access to { this.state.service.name }?</h3>
+          <p dangerouslySetInnerHTML={this.renderHtml(this.state.service.request_procedures)} />
+        </div>
         <div className="description-external">
           <h3>What is { this.state.service.name }?</h3>
           <p dangerouslySetInnerHTML={this.renderHtml(this.state.service.description_external)} />
@@ -48,12 +53,12 @@ class Service extends Reflux.Component {
           <h3>What is the added value of { this.state.service.name }?</h3>
           <p dangerouslySetInnerHTML={this.renderHtml(this.state.service.value_to_customer)} />
         </div>
-        <div className="request-procedures">
-          <h3>How can you get access to { this.state.service.name }?</h3>
-          <p dangerouslySetInnerHTML={this.renderHtml(this.state.service.request_procedures)} />
-        </div>
         { ( this.state.service.service_details_list && this.state.service.service_details_list.count > 0 ) ?
             this.renderDetailsList() : '' }
+        { ( this.state.service.contact_information) ?
+            <ContactInformation data={this.state.service.contact_information} /> :
+            ''
+        }
       </div>
     );
   }

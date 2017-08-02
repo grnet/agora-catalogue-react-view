@@ -14,7 +14,9 @@ class FullCatalogueStore extends Reflux.Store {
       services: [],
       services_loaded: false,
       service_loaded: false,
-      service: {}
+      service: {},
+      contact: {},
+      contact_loaded: false
     };
   }
 
@@ -43,6 +45,20 @@ class FullCatalogueStore extends Reflux.Store {
         }
         this.setState({ service });
         this.setState({ service_loaded: true });
+      });
+  }
+
+  onGetContactInformation(api_url) {
+    this.setState({ contact_loaded: false });
+    request
+      .get(api_url)
+      .end((err, res) => {
+        let contact = {};
+        if(res && res.body.data) {
+          contact = res.body.data.external_contact_information;
+        }
+        this.setState({ contact });
+        this.setState({ contact_loaded: true });
       });
   }
 }
