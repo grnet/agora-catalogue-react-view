@@ -3,7 +3,7 @@ import request from 'superagent';
 import Actions from './actions';
 
 const api = {
-  services: 'https://agora-dev.vi-seem.eu/api/v1/catalogue/services'
+  services: 'https://sp.eudat.eu/api/v1/catalogue/services'
 };
 
 class FullCatalogueStore extends Reflux.Store {
