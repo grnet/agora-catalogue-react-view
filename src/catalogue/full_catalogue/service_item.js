@@ -14,8 +14,8 @@ class ServiceItem extends React.Component {
 
   renderUserTags() {
     let tags = [];
-    tags = this.props.data.user_customers_list.user_customers.map((item) => {
-      return <div className="user-tag">{ item.name }</div>
+    tags = this.props.data.user_customers_list.user_customers.map((item, key) => {
+      return <div className="user-tag" key={`service_item-${key}`}>{ item.name }</div>
     });
     return tags;
   }
