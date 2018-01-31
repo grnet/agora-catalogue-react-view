@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ServiceLogo from '../common/service_logo.js';
+import GetAppUrl from '../../common/helper';
+
+const APP_ROOT_URL = GetAppUrl();
 
 class ServiceItem extends React.Component {
 
@@ -23,10 +26,10 @@ class ServiceItem extends React.Component {
   render() {
     return (
       <div className="service-item">
-        <Link to={`/catalogue/${this.props.data.service.name}`}>
+        <Link to={`${APP_ROOT_URL}/${this.props.data.service.name}`}>
           <ServiceLogo img_name={this.props.data.logo} />
         </Link>
-        <Link to={`/catalogue/${this.props.data.service.name}`}>
+        <Link to={`${APP_ROOT_URL}/${this.props.data.service.name}`}>
           <h3>{ this.props.data.name }</h3>
         </Link>
         <div className="service-area">Service Area: { this.props.data.service_area }</div>
