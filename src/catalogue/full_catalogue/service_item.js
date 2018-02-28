@@ -7,10 +7,6 @@ const APP_ROOT_URL = GetAppUrl();
 
 class ServiceItem extends React.Component {
 
-  getImgUrl() {
-    return `https://agora-dev.vi-seem.eu/static/img/logos/${this.props.data.logo}`;
-  }
-
   renderHtml(markup) {
     return {__html: markup};
   }
@@ -27,7 +23,7 @@ class ServiceItem extends React.Component {
     return (
       <div className="service-item">
         <Link to={`${APP_ROOT_URL}/${this.props.data.service.name}`}>
-          <ServiceLogo img_name={this.props.data.logo} />
+          <ServiceLogo uuid={this.props.data.uuid} img_name={this.props.data.logo} />
         </Link>
         <Link to={`${APP_ROOT_URL}/${this.props.data.service.name}`}>
           <h3>{ this.props.data.name }</h3>

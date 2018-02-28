@@ -3,7 +3,7 @@ import React from 'react';
 class ServiceLogo extends React.Component {
 
   getImgUrl() {
-    return `https://agora-dev.vi-seem.eu/static/img/logos/${this.props.img_name}`;
+    return `https://sp.eudat.eu/media/services/${this.props.uuid}/${this.props.img_name}`;
   }
 
   render() {

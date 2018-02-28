@@ -39,7 +39,7 @@ class Service extends Reflux.Component {
     document.title = `${this.state.service.name} - EUDAT Service Catalogue`;
     return (
       <div className="service">
-        <ServiceLogo img_name={this.state.service.logo} />
+        <ServiceLogo uuid={this.state.service.uuid} img_name={this.state.service.logo} />
         <h1>{ this.state.service.name }</h1>
         <div className="request-procedures">
           <h3>How can you get access to { this.state.service.name }?</h3>
