@@ -22,10 +22,10 @@ class ServiceItem extends React.Component {
   render() {
     return (
       <div className="service-item">
-        <Link to={`${APP_ROOT_URL}/${this.props.data.service.name}`}>
+        <Link to={`${APP_ROOT_URL}/${this.props.data.name}`}>
           <ServiceLogo uuid={this.props.data.uuid} img_name={this.props.data.logo} />
         </Link>
-        <Link to={`${APP_ROOT_URL}/${this.props.data.service.name}`}>
+        <Link to={`${APP_ROOT_URL}/${this.props.data.name}`}>
           <h3>{ this.props.data.name }</h3>
         </Link>
         <div className="service-area">Service Area: { this.props.data.service_area }</div>
