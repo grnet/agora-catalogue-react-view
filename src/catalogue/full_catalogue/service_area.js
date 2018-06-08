@@ -19,11 +19,12 @@ class ServiceArea extends React.Component {
   render() {
     return (
       <div className="service-area">
-        <h1>{this.props.area}</h1>
+        <h1>{ this.props.area }</h1>
         <div className="services">{ this.renderServices() }</div>
       </div>
     );
   }
+
 }
 
 export default ServiceArea;

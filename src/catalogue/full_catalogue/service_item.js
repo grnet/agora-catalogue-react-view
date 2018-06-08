@@ -8,14 +8,16 @@ const APP_ROOT_URL = GetAppUrl();
 class ServiceItem extends React.Component {
 
   renderHtml(markup) {
-    return {__html: markup};
+    return { __html: markup };
   }
 
   renderUserTags() {
     let tags = [];
+
     tags = this.props.data.user_customers_list.user_customers.map((item, key) => {
       return <div className="user-tag" key={`service_item-${key}`}>{ item.name }</div>
     });
+
     return tags;
   }
 
@@ -34,6 +36,7 @@ class ServiceItem extends React.Component {
       </div>
     );
   }
+
 }
 
 export default ServiceItem;

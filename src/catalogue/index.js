@@ -7,6 +7,7 @@ import GetAppUrl from '../common/helper';
 const APP_ROOT_URL = GetAppUrl();
 
 class Catalogue extends React.Component {
+
   render() {
     return (
       <Switch>
@@ -15,6 +16,7 @@ class Catalogue extends React.Component {
       </Switch>
     );
   }
+
 }
 
 export default Catalogue;

@@ -112,9 +112,12 @@
       "afterOpening": "never",
       "beforeClosing": "never"
     }],
+    "key-spacing": ["error", { "beforeColon": false, "afterColon": true}],
     "react/jsx-curly-spacing": ["warn", {
-      "when": "always",
-      "spacing": { "objectLiterals": "never" }
+      "when": "never",
+      "children": {
+        "when": "always"
+      }
     }]
   }
 }

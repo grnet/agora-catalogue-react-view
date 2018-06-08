@@ -7,6 +7,7 @@ import Store from '../common/store.js';
 import ServiceArea from './service_area.js';
 
 class FullService extends Reflux.Component {
+
   constructor(props) {
     super(props);
     this.state = {};
@@ -22,11 +23,13 @@ class FullService extends Reflux.Component {
   renderList() {
     let service_areas = groupBy(this.state.services, (item) => { return item.service_area });
     let items = [];
+
     items = Object.keys(service_areas).map((key, index) => {
       return (
         <ServiceArea key={index} area={key} data={service_areas[key]} />
       );
     });
+
     return items;
   }
 
@@ -36,13 +39,14 @@ class FullService extends Reflux.Component {
         <div className="services-list">
           {
             (this.state.services_loaded) ?
-            this.renderList() :
-            <Spinner name="circle" color="rgba(191,57,45,0.9)" fadeIn="quarter" />
+              this.renderList() :
+              <Spinner name="circle" color="rgba(191,57,45,0.9)" fadeIn="quarter" />
           }
         </div>
       </div>
     );
   }
+
 }
 
 export default FullService;

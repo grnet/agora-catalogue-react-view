@@ -9,6 +9,7 @@ import { orderBy } from 'lodash';
 import Spinner from 'react-spinkit';
 
 class Service extends Reflux.Component {
+
   constructor() {
     super();
     this.state = {};
@@ -21,22 +22,25 @@ class Service extends Reflux.Component {
   }
 
   renderHtml(markup) {
-    return {__html: markup};
+    return { __html: markup };
   }
 
   renderDetailsList() {
     let details = [];
-    const list = orderBy(this.state.service.service_details_list.service_details, ['version'],['desc']);
+    const list = orderBy(this.state.service.service_details_list.service_details, ['version'], ['desc']);
+
     details = list.map((item, index) => {
       return (
         <DetailsItem data={item} key={index} service_name={this.state.service.name} />
       );
     });
+
     return details;
   }
 
   renderContent() {
     document.title = `${this.state.service.name} - EUDAT Service Catalogue`;
+
     return (
       <div className="service">
         <ServiceLogo uuid={this.state.service.uuid} img_name={this.state.service.logo} />
@@ -53,11 +57,11 @@ class Service extends Reflux.Component {
           <h3>What is the added value of { this.state.service.name }?</h3>
           <p dangerouslySetInnerHTML={this.renderHtml(this.state.service.value_to_customer)} />
         </div>
-        { ( this.state.service.service_details_list && this.state.service.service_details_list.count > 0 ) ?
-            this.renderDetailsList() : '' }
-        { ( this.state.service.contact_information) ?
-            <ContactInformation data={this.state.service.contact_information} /> :
-            ''
+        { (this.state.service.service_details_list && this.state.service.service_details_list.count > 0) ?
+          this.renderDetailsList() : '' }
+        { (this.state.service.contact_information) ?
+          <ContactInformation data={this.state.service.contact_information} /> :
+          ''
         }
       </div>
     );
@@ -73,6 +77,7 @@ class Service extends Reflux.Component {
       </div>
     );
   }
+
 }
 
 export default Service;

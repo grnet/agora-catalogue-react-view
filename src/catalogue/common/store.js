@@ -3,10 +3,11 @@ import request from 'superagent';
 import Actions from './actions';
 
 const api = {
-  services: 'https://sp.eudat.eu/api/v1/catalogue/services'
+  services: 'https://sp.eudat.eu/api/v1/catalogue/services',
 };
 
 class FullCatalogueStore extends Reflux.Store {
+
   constructor() {
     super();
     this.listenables = [ Actions ];
@@ -16,7 +17,7 @@ class FullCatalogueStore extends Reflux.Store {
       service_loaded: false,
       service: {},
       contact: {},
-      contact_loaded: false
+      contact_loaded: false,
     };
   }
 
@@ -26,6 +27,7 @@ class FullCatalogueStore extends Reflux.Store {
       .get(api.services)
       .end((err, res) => {
         let services = [];
+
         if(res && res.body.data && res.body.data.services) {
           services = res.body.data.services;
         }
@@ -40,6 +42,7 @@ class FullCatalogueStore extends Reflux.Store {
       .get(api.services + name)
       .end((err, res) => {
         let service = {};
+
         if(res && res.body.data) {
           service = res.body.data;
         }
@@ -54,6 +57,7 @@ class FullCatalogueStore extends Reflux.Store {
       .get(api_url)
       .end((err, res) => {
         let contact = {};
+
         if(res && res.body.data) {
           contact = res.body.data.external_contact_information;
         }
@@ -61,6 +65,7 @@ class FullCatalogueStore extends Reflux.Store {
         this.setState({ contact_loaded: true });
       });
   }
+
 }
 
 export default FullCatalogueStore;

@@ -5,6 +5,7 @@ import Store from '../common/store.js';
 import Spinner from 'react-spinkit';
 
 class ContactInformation extends Reflux.Component {
+
   constructor() {
     super();
     this.state = {};
@@ -19,7 +20,7 @@ class ContactInformation extends Reflux.Component {
   renderEmail() {
     return (
       <div className="contact-email">
-        <div>Email: <a href={"mailto:"+this.state.contact.email}>{ this.state.contact.email }</a></div>
+        <div>Email: <a href={'mailto:' + this.state.contact.email}>{ this.state.contact.email }</a></div>
       </div>
     );
   }
@@ -52,6 +53,7 @@ class ContactInformation extends Reflux.Component {
       </div>
     );
   }
+
 }
 
 export default ContactInformation;

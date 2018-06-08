@@ -14,6 +14,7 @@ class Layout extends React.Component {
       </Switch>
     );
   }
+
 }
 
 export default Layout;
