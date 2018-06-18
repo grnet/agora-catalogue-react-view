@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
-import Header from './common/header.js';
-import Footer from './common/footer.js';
-import Layout from './common/layout.js';
+import { Switch, Route } from 'react-router-dom';
+import Catalogue from './components/catalogue';
+import Service from './components/service';
+import CatalogueProvider, { CatalogueConsumer } from './context/catalogue';
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <Layout />
-        <Footer />
+        <CatalogueProvider>
+          <CatalogueConsumer>
+            {(data) => (
+              <Switch>
+                <Route exact path={`/${data.config.page}`} component={Catalogue} />
+                <Route path={`/${data.config.page}/:service`} component={Service} />
+              </Switch>
+            )}
+          </CatalogueConsumer>
+        </CatalogueProvider>
       </div>
     );
   }
