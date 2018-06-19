@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { getAppUrl } from '../common/helper';
+
+const APP_ROOT = getAppUrl();
 
 export default class ServiceItem extends React.Component {
   render() {
@@ -10,11 +14,14 @@ export default class ServiceItem extends React.Component {
   }
 
   renderSimple() {
-    console.log(this.props);
     return  (
       <div>
-        <img src={ this.props.logo } alt={ this.props.name } />
-        <h3>{ this.props.name }</h3>
+        <Link to={APP_ROOT+this.props.name}>
+          <img src={ this.props.logo } alt={ this.props.name } />
+        </Link>
+        <Link to={APP_ROOT+this.props.name}>
+          <h3>{ this.props.name }</h3>
+        </Link>
         {
           (this.props.service_area_ext) ?
             <div className="service-area">Service Area: {this.props.service_area_ext}</div> :
@@ -56,9 +63,9 @@ export default class ServiceItem extends React.Component {
 
   renderUserTags(tagStr) {
     const tokens = tagStr.split(',');
-    return tokens.map((tag) => {
+    return tokens.map((tag, index) => {
       return (
-        <div className="user-tag">{tag}</div>
+        <div key={index} className="user-tag">{tag}</div>
       );
     })
   }
