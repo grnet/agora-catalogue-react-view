@@ -7,17 +7,19 @@ export default class Catalogue extends React.Component {
 
   render() {
     return (
-      <CatalogueConsumer>
-        {(data) => {
-          return this.groupServices(data.services);
-        }}
-      </CatalogueConsumer>
+      <div className="services-list">
+        <CatalogueConsumer>
+            {(data) => {
+              return this.groupServices(data.services);
+            }}
+        </CatalogueConsumer>
+      </div>
     );
   }
 
   groupServices(services) {
     const groups = groupBy(services, (service) => {
-      return (service.service_area) ? service.service_area_ext.name : 'undefined';
+      return (service.service_area_ext) ? service.service_area_ext : 'undefined';
     })
 
     return Object.keys(groups).map((key, index) => {

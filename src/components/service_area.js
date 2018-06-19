@@ -5,9 +5,11 @@ import ServiceItem from './service_item';
 export default class ServiceArea extends React.Component {
   render() {
     return (
-      <div>
+      <div className="service-area">
         <h1>{ this.props.label }</h1>
-        { this.renderServices() }
+        <div className="services">
+          { this.renderServices() }
+        </div>
       </div>
     );
   }

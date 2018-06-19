@@ -3,19 +3,33 @@ import React from 'react';
 export default class ServiceItem extends React.Component {
   render() {
     return (
-      <div>
+      <div className="service-item">
         { (this.props.extended) ? this.renderExtended() : this.renderSimple() }
       </div>
     )
   }
 
   renderSimple() {
+    console.log(this.props);
     return  (
       <div>
+        <img src={ this.props.logo } alt={ this.props.name } />
         <h3>{ this.props.name }</h3>
-        <div>{ this.props.logo }</div>
-        <div>{ this.props.short_description }</div>
-        <div>{ (this.props.service_are_ext) ? this.props.service_area_ext.name : '' }</div>
+        {
+          (this.props.service_area_ext) ?
+            <div className="service-area">Service Area: {this.props.service_area_ext}</div> :
+            ''
+        }
+        {
+          (this.props.short_description) ?
+            <div className="short-description">{this.props.short_description}</div> :
+            ''
+        }
+        {
+          (this.props.user_customers_ext.length > 0) ?
+            <div className="user-tags">{this.renderUserTags(this.props.user_customers_ext)}</div> :
+            ''
+        }
       </div>
     );
   }
@@ -38,5 +52,14 @@ export default class ServiceItem extends React.Component {
         </div>
       );
     });
+  }
+
+  renderUserTags(tagStr) {
+    const tokens = tagStr.split(',');
+    return tokens.map((tag) => {
+      return (
+        <div className="user-tag">{tag}</div>
+      );
+    })
   }
 }
