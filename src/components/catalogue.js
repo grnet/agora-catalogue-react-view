@@ -9,9 +9,9 @@ export default class Catalogue extends React.Component {
     return (
       <div className="services-list">
         <CatalogueConsumer>
-            {(data) => {
-              return this.groupServices(data.services);
-            }}
+          { (data) => {
+            return this.groupServices(data.services);
+          } }
         </CatalogueConsumer>
       </div>
     );

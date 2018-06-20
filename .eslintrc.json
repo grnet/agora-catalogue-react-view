@@ -6,7 +6,10 @@
      "es6": true
   },
   "parser": "babel-eslint",
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:flowtype/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -16,7 +19,8 @@
   },
   "plugins": [
     "react",
-    "import"
+    "import",
+    "flowtype"
   ],
   "rules": {
 
@@ -60,6 +64,7 @@
     "space-infix-ops": "warn",
     "spaced-comment": ["warn", "always", { "block": { "balanced": true }}],
     "object-curly-spacing": ["error", "always"],
+    "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
 
     // empty lines
 
@@ -104,20 +109,26 @@
     "react/jsx-boolean-value": ["warn", "never"],
     "react/self-closing-comp": ["warn", { "component": true, "html": true }],
     "react/jsx-no-duplicate-props": ["warn", { "ignoreCase": true }],
-    "react/jsx-boolean-value": ["error", "never"],
-    "react/self-closing-comp": ["error", { "component": true }],
+    "react/jsx-uses-react": 2,
     "react/jsx-tag-spacing": ["warn", {
       "closingSlash": "never",
       "beforeSelfClosing": "always",
       "afterOpening": "never",
       "beforeClosing": "never"
     }],
-    "key-spacing": ["error", { "beforeColon": false, "afterColon": true}],
+    // based on airbnb
     "react/jsx-curly-spacing": ["warn", {
       "when": "never",
       "children": {
         "when": "always"
       }
-    }]
+    }],
+    // When using a boolean attribute in JSX, you can set the attribute value
+    // to true or omit the value. This rule will enforce to omit the value.
+    "react/jsx-boolean-value": ["error", "never"],
+    // Components without children can be self-closed to avoid unnecessary extra
+    // closing tag.
+    "react/self-closing-comp": ["error", { "component": true }],
+    "react/jsx-equals-spacing": ["warn", "never"]
   }
 }

@@ -11,12 +11,12 @@ class App extends Component {
       <div className="App">
         <CatalogueProvider>
           <CatalogueConsumer>
-            {(data) => (
+            { (data) => (
               <Switch>
                 <Route exact path={`/${data.config.page}`} component={Catalogue} />
                 <Route path={`/${data.config.page}/:service`} component={Service} />
               </Switch>
-            )}
+            ) }
           </CatalogueConsumer>
         </CatalogueProvider>
       </div>

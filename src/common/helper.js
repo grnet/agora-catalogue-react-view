@@ -1,3 +1,3 @@
 export function getAppUrl() {
-  return '/' + window.spmt.page  + '/';
+  return '/' + window.spmt.page + '/';
 }

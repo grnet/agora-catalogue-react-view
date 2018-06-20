@@ -8,6 +8,7 @@ const config = window.spmt;
 export const CatalogueConsumer = CatalogueContext.Consumer;
 
 export default class CatalogueProvider extends React.Component {
+
   // window.spmt
   // GET req server data
 
@@ -28,8 +29,9 @@ export default class CatalogueProvider extends React.Component {
   render() {
     return (
       <CatalogueContext.Provider value={{ config, services: this.state.data }}>
-        {this.props.children}
+        { this.props.children }
       </CatalogueContext.Provider>
     );
   }
+
 }
