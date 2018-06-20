@@ -47,15 +47,16 @@ export default class ServiceItem extends React.Component {
       if(this.props[field.field_key]) {
         fields.push({
           label: field.field_label,
-          value: this.props[field.field_key]
+          value: this.props[field.field_key],
+          key: field.field_key
         });
       }
     });
     return fields.map((field, index) => {
       return (
-        <div key={index}>
-          <h4>{field.label}</h4>
-          <div>{field.value}</div>
+        <div key={index} className={field.key}>
+          <h4 className="label">{field.label}</h4>
+          <div className="value">{field.value}</div>
         </div>
       );
     });
