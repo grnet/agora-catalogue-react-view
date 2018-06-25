@@ -9,12 +9,13 @@ export default class ServiceItem extends React.Component {
   render() {
     return (
       <div className="service-item">
-        { (this.props.extended) ? this.renderExtended() : this.renderSimple() }
+        { (this.props.extended) ? this.renderExtended() : this.renderCompact() }
       </div>
     )
   }
 
-  renderSimple() {
+  // render a short version of the service, for the list view page
+  renderCompact() {
     return (
       <div>
         <Link to={APP_ROOT + this.props.name}>
@@ -42,6 +43,7 @@ export default class ServiceItem extends React.Component {
     );
   }
 
+  // render all fields the user defined from drupal's spmt
   renderExtended() {
     let fields = [];
 
