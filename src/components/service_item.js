@@ -6,6 +6,10 @@ const APP_ROOT = getAppUrl();
 
 export default class ServiceItem extends React.Component {
 
+  renderHTML(markup) {
+    return { __html: markup };
+  }
+
   render() {
     return (
       <div className="service-item">
@@ -31,7 +35,7 @@ export default class ServiceItem extends React.Component {
         }
         {
           (this.props.short_description) ?
-            <div className="short-description">{ this.props.short_description }</div> :
+            <div className="short-description" dangerouslySetInnerHTML={this.renderHTML(this.props.short_description)} /> :
             ''
         }
         {
@@ -61,7 +65,10 @@ export default class ServiceItem extends React.Component {
       return (
         <div key={index} className={field.key}>
           <h4 className="label">{ field.label }</h4>
-          <div className="value">{ field.value }</div>
+          { (field.key === 'logo') ?
+            <img src={field.value} alt={field.label} title={field.label} /> :
+            <div className="value" dangerouslySetInnerHTML={this.renderHTML(field.value)} />
+          }
         </div>
       );
     });
