@@ -3,7 +3,7 @@ import request from 'superagent';
 
 const CatalogueContext = React.createContext();
 
-const config = window.spmt;
+const config = window.agora_sp;
 
 export const CatalogueConsumer = CatalogueContext.Consumer;
 
