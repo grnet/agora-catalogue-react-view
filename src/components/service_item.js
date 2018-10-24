@@ -21,12 +21,12 @@ export default class ServiceItem extends React.Component {
   // render a short version of the service, for the list view page
   renderCompact() {
     return (
-      <div>
+      <div className="service-item-container">
         <Link to={APP_ROOT + this.props.name}>
-          <img src={this.props.logo} alt={this.props.name} />
+          <img className="logo" src={this.props.logo} alt={this.props.name} />
         </Link>
         <Link to={APP_ROOT + this.props.name}>
-          <h3>{ this.props.name }</h3>
+          <h3 className="service-name">{ this.props.name }</h3>
         </Link>
         {
           (this.props.service_area_ext) ?
