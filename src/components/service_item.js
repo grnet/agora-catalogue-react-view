@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { getAppUrl } from '../common/helper';
 
 const APP_ROOT = getAppUrl();
@@ -22,12 +22,12 @@ export default class ServiceItem extends React.Component {
   renderCompact() {
     return (
       <div className="service-item-container">
-        <Link to={APP_ROOT + this.props.name}>
+        <a href={APP_ROOT + this.props.name}>
           <img className="logo" src={this.props.logo} alt={this.props.name} />
-        </Link>
-        <Link to={APP_ROOT + this.props.name}>
+        </a>
+        <a href={APP_ROOT + this.props.name}>
           <h3 className="service-name">{ this.props.name }</h3>
-        </Link>
+        </a>
         {
           (this.props.service_area_ext) ?
             <div className="service-area">Service Area: { this.props.service_area_ext }</div> :
