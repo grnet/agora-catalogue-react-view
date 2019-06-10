@@ -1,18 +1,27 @@
-# Agora-UI
+# Agora UI
 
-### Description
+Agora UI is a React application that is used in combination with Agora Drupal Connector in order to render a predefined set of fields and data, provided by the drupal module.
 
-This drupal module allows the user to render a service catalogue listing of the services provided by eudat.eu. Data are provided from the following API:
+It is based on create-react-app, so the same principles apply on development/building the project.
+
+Agora Drupal Connector requires the `build/static/js/main.XXX.js` file in order to integrate the functionality of the React App inside the drupal module. More details on how to release a new drupal module version are [here](link-to-drupal-module)
+
+## Development
+
+In order to develop this project without the drupal module, you need to provide a configuration object on the `window` level of the plugin.
+
+The following example is taken from the staging environment, that provides the object:
 
 ```
-https://sp.eudat.eu/api/v2/ext-services
+window.agora_sp: {
+  feed_url: "https://your.domain.here/api/v2/ext-services",
+  page: "catalogue",
+  fields: [{field_key: "key", field_label: "label"}]
+}
 ```
-This application is used with a connector to a cms project.
 
-### Available connectors
+You can add the snippet above inside the `src/context/catalogue.js` in order to provide the required context for the app to load.
 
-  - [Drupal connector](https://github.com/grnet/agora-drupal-connector)
+Run `yarn start` in order to run the dev server.
 
-### Contribute
-
-Check the [docs](https://github.com/grnet/agora-catalogue-react-view/blob/master/docs) directory on how to develop or build the project.
+You can then navigate to your browser to `localhost:3000/catalogue` in order to preview the app. **NOTE**: the key `page` inside the `window.agora_sp` object, is the location you need to navigate in order to see the app.
