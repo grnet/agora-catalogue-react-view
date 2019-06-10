@@ -29,18 +29,8 @@ export default class ServiceItem extends React.Component {
           <h3 className="service-name">{ this.props.name }</h3>
         </a>
         {
-          (this.props.service_area_ext) ?
-            <div className="service-area">Service Area: { this.props.service_area_ext }</div> :
-            ''
-        }
-        {
           (this.props.short_description) ?
             <div className="short-description" dangerouslySetInnerHTML={this.renderHTML(this.props.short_description)} /> :
-            ''
-        }
-        {
-          (this.props.user_customers_ext.length > 0) ?
-            <div className="user-tags">{ this.renderUserTags(this.props.user_customers_ext) }</div> :
             ''
         }
       </div>
