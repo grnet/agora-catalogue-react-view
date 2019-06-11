@@ -4,7 +4,7 @@ Agora UI is a React application that is used in combination with Agora Drupal Co
 
 It is based on create-react-app, so the same principles apply on development/building the project.
 
-Agora Drupal Connector requires the `build/static/js/main.XXX.js` file in order to integrate the functionality of the React App inside the drupal module. More details on how to release a new drupal module version are [here](link-to-drupal-module)
+Agora Drupal Connector requires the `build/static/js/main.XXX.js` file in order to integrate the functionality of the React App inside the drupal module. More details on how to release a new drupal module version are [here](https://gitlab.grnet.gr/devs/agora/agora-drupal-connector#updating-the-react-app)
 
 ## Development
 
@@ -19,8 +19,12 @@ window.agora_sp: {
   fields: [{field_key: "key", field_label: "label"}]
 }
 ```
+where:
+  - `feed_url` is the API endpoint of the `agora-sp` installation that retrieves the data
+  - `page` is the path where the React app should render
+  - `fields` are the fields selected from the drupal module to be visible in the details page of each service
 
-You can add the snippet above inside the `src/context/catalogue.js` in order to provide the required context for the app to load.
+You can add the snippet above inside the `src/context/catalogue.js` in order to provide the required context for the app to load (or you can use the same object from the staging environment by typing `window.agora_sp` in the console of the staging environment)
 
 Run `yarn start` in order to run the dev server.
 
