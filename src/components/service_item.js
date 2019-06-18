@@ -29,8 +29,8 @@ export default class ServiceItem extends React.Component {
           <h3 className="service-name">{ this.props.name }</h3>
         </a>
         {
-          (this.props.short_description) ?
-            <div className="short-description" dangerouslySetInnerHTML={this.renderHTML(this.props.short_description)} /> :
+          (this.props.tagline) ?
+            <div className="tagline" dangerouslySetInnerHTML={this.renderHTML(this.props.tagline)} /> :
             ''
         }
       </div>
