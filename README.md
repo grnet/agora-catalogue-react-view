@@ -29,3 +29,9 @@ You can add the snippet above inside the `src/context/catalogue.js` in order to 
 Run `yarn start` in order to run the dev server.
 
 You can then navigate to your browser to `localhost:3000/catalogue` in order to preview the app. **NOTE**: the key `page` inside the `window.agora_sp` object, is the location you need to navigate in order to see the app.
+
+### Funding
+The work represented by this software was partially funded by
+* EOSC-Hub project  European Union (EU) Horizon 2020 program under Grant number 77753642. 
+* EUDAT2020  European Union’s H2020  Program under Contract No. 654065.
+* EUDAT  Framework Programme 7 under Contract No. 283304.
